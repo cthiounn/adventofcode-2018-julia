@@ -2,10 +2,10 @@
 
 function day1()
 	fname="input\\day1-input.file"
-	outputPart1=0
-	loop=0
-	breakLoop=0
-	seen = Int64[]
+	global outputPart1=0
+	global loop=0
+	global breakLoop=0
+	global seen = Int64[]
 	while breakLoop==0
 		open(fname) do file
 			for line in eachline(file)
@@ -26,4 +26,5 @@ function day1()
 	
 	println(outputPart1)
 end
+
 @time day1()
