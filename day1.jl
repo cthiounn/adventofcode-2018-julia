@@ -1,6 +1,7 @@
 #!/usr/bin/env julia
 
 function day1()
+	global frequencies = Dict{Int32,Bool}()
 	fname="input\\day1-input.file"
 	global outputPart1=0
 	global loop=0
@@ -11,11 +12,11 @@ function day1()
 			for line in eachline(file)
 				#println(line)
 				global outputPart1 += parse(Int32,line)
-				if outputPart1 in seen
+				if haskey(frequencies,outputPart1)
 					global breakLoop=1
 					break
 				end
-				push!(seen,outputPart1)
+				frequencies[outputPart1]=1
 			end
 			if loop==0
 				println(outputPart1)
